@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * A class to hold details of audio tracks.
@@ -124,6 +125,19 @@ public class MusicOrganizer
     {
         if(tracks.size() > 0) {
             player.startPlaying(tracks.get(0).getFilename());
+        }
+    }
+    
+    /**
+     * Play random track in the collection, if there is one.
+     */
+    public void shuffle()
+    {
+        if(tracks.size() > 0) {
+            Random generator = new Random();
+            int n = tracks.size() - 1;
+            int randomIndex = generator.nextInt( n );
+            player.startPlaying(tracks.get(randomIndex).getFilename());
         }
     }
     
